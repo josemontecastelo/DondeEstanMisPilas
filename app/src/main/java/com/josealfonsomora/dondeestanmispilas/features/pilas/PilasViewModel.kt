@@ -14,7 +14,7 @@ class PilasViewModel @Inject constructor(
         get() = _state
 
     init {
-        _state = repository.descargaPilas()
+        _state = repository.getPilas()
     }
 
     fun guardarPila(pila: Pila) {

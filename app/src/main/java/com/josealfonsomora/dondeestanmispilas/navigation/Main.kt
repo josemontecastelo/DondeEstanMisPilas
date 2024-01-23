@@ -12,7 +12,7 @@ import com.josealfonsomora.dondeestanmispilas.features.pilas.pilasScreen
 fun Navigation(modifier: Modifier = Modifier){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = ROUTE){
-        pilasScreen()
+        pilasScreen(navController = navController)
         addPilasScreen()
     }
 }
