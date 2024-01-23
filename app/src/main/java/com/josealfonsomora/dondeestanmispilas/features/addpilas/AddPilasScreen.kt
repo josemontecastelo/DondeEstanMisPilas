@@ -5,6 +5,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.josealfonsomora.dondeestanmispilas.domain.Pila
 import com.josealfonsomora.dondeestanmispilas.features.pilas.Pila
 
 @Composable

@@ -1,7 +1,15 @@
 package com.josealfonsomora.dondeestanmispilas.features.pilas
 
+import android.util.Log
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.josealfonsomora.dondeestanmispilas.domain.Pila
+import com.josealfonsomora.dondeestanmispilas.features.login.LoginContent
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 
@@ -9,24 +17,18 @@ import javax.inject.Inject
 class PilasViewModel @Inject constructor(
     private val repository: PilasRepository
 ) : ViewModel() {
-    private var _state: List<Pila> = emptyList()
-    val state
-        get() = _state
+     var _state = mutableStateOf(emptyList<Pila>())
 
     init {
-        _state = repository.getPilas()
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                _state.value = repository.getPilas()
+                Log.d("PilasViewModel", "PilasViewModel: $_state")
+            }
+        }
     }
 
-    fun guardarPila(pila: Pila) {
-        repository.guardarPila(pila)
-    }
 }
 
 
-data class Pila(
-    val name: String,
-    val description: String,
-    val type: String,
-    val location: String,
-)
 
