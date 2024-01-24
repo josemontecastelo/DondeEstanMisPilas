@@ -1,6 +1,7 @@
 package com.josealfonsomora.dondeestanmispilas
 
 import android.content.ContentValues
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -43,6 +44,22 @@ class MainActivity : ComponentActivity() {
 //            put(PilasDBScheme.COLUMN_LOCATION, "Despertador")
 //        }
 //        writableDB.insert(PilasDBScheme.TABLE_NAME,null, values)
+
+//        val sharedprefs = this.getSharedPreferences("Shared1", Context.MODE_PRIVATE)
+//        sharedprefs.edit().putInt("key1", 1).apply()
+
+//        val sharedPref = this.getPreferences(Context.MODE_PRIVATE) ?: return
+//        with (sharedPref.edit()) {
+//            putInt(getString(R.string.saved_high_score_key), newHighScore)
+//            apply()
+//        }
+
+//        sharedprefs.edit().apply{
+//            putInt("key1", 1)
+//            apply()
+//        }
+//        val savedShare = sharedprefs.getInt("key1",9)
+//        Log.d("Lifecycle", "onCreate: $savedShare")
         setContent {
             DondeEstanMisPilasTheme {
                 Scaffold(
