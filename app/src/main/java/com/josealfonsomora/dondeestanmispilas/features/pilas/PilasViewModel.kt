@@ -1,6 +1,9 @@
 package com.josealfonsomora.dondeestanmispilas.features.pilas
 
+import android.net.Uri
 import android.util.Log
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.MutableState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -62,6 +65,12 @@ class PilasViewModel @Inject constructor(
             simpleMapped().collect {
                 _state.value = Success(pilas = mutableListOf(it))
             }
+        }
+    }
+
+    fun onCameraPermissionGranted(){
+        viewModelScope.launch {
+            channel.send("openCamera")
         }
     }
 

@@ -1,8 +1,11 @@
 package com.josealfonsomora.dondeestanmispilas.api
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.PATCH
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface CatsApi {
@@ -30,5 +33,6 @@ interface CatsApi {
 
 @Serializable
 data class CatFactResponse(
-    val text: String,
+    @SerialName("__v") val v: String,
+    @SerialName("text") val loquequeramos: String,
 )

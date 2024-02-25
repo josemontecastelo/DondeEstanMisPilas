@@ -1,5 +1,9 @@
 package com.josealfonsomora.dondeestanmispilas
 
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -15,10 +19,25 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import android.provider.Settings
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
+import com.josealfonsomora.dondeestanmispilas.di.PilasDataStore
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
+import javax.inject.Inject
+
 
 @ExperimentalMaterial3Api
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    @PilasDataStore
+    lateinit var pilasDataStore: DataStore<Preferences>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,7 +88,29 @@ class MainActivity : ComponentActivity() {
 //        }
 //
 //        funcionquesepara()
+        val EXAMPLE_COUNTER = intPreferencesKey("example_counter")
+        val EXAMPLE_COUNTER_2 = intPreferencesKey("example_counter_2")
 
+//        runBlocking {
+//            pilasDataStore.edit { preferences ->
+//                preferences[EXAMPLE_COUNTER] = 6
+//                preferences[EXAMPLE_COUNTER_2] = 16
+//            }
+//        }
+        runBlocking {
+            pilasDataStore.data.map { preferences ->
+                val saved = preferences[EXAMPLE_COUNTER] ?: 0
+                val saved2 = preferences[EXAMPLE_COUNTER_2] ?: 0
+                Log.d("PilasRepository", "getPilasFromDataStore: $saved $saved2")
+            }.first()
+        }
+        if(shouldShowRequestPermissionRationale(android.Manifest.permission.CAMERA)){
+            Log.d("Permission", "shouldShowRequestPermissionRationale: TRUE ")
+        }else{
+            Log.d("Permission", "shouldShowRequestPermissionRationale: FALSE ")
+//            startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName")))
+//            openAppSettings()
+        }
         setContent {
             DondeEstanMisPilasTheme {
                 Scaffold(
@@ -82,7 +123,9 @@ class MainActivity : ComponentActivity() {
                         }
                     },
                 ) { padding ->
-                    Navigation(modifier = Modifier.padding(padding))
+                    Navigation(
+                        modifier = Modifier.padding(padding),
+                    )
                 }
 
             }
@@ -92,8 +135,17 @@ class MainActivity : ComponentActivity() {
     override fun onResume() {
         super.onResume()
         Log.d("Lifecycle", "onResume: ")
-
     }
+
+
+
+}
+
+fun Activity.openAppSettings() {
+    Intent(
+        Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+        Uri.fromParts("package", packageName, null)
+    ).also(::startActivity)
 }
 
 

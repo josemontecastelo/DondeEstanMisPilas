@@ -1,10 +1,13 @@
 package com.josealfonsomora.dondeestanmispilas.di
 
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.josealfonsomora.dondeestanmispilas.api.CatsApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -31,8 +34,8 @@ object NetworkModule{
     fun providesCatsService(client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://cat-fact.herokuapp.com")
-//            .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+//            .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
     }

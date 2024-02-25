@@ -11,7 +11,9 @@ import com.josealfonsomora.dondeestanmispilas.features.pilas.ROUTE
 import com.josealfonsomora.dondeestanmispilas.features.pilas.pilasScreen
 
 @Composable
-fun Navigation(modifier: Modifier = Modifier){
+fun Navigation(
+    modifier: Modifier = Modifier,
+    ){
 
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = ROUTE){
