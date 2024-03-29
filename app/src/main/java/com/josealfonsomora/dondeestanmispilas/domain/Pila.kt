@@ -1,6 +1,6 @@
 package com.josealfonsomora.dondeestanmispilas.domain
 
-import com.josealfonsomora.dondeestanmispilas.bd.pilas_db.PilaEntity
+import com.josealfonsomora.dondeestanmispilas.data.sources.room.PilaEntity
 
 data class Pila(
     val name: String,

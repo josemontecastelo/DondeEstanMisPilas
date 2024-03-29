@@ -1,10 +1,12 @@
-package com.josealfonsomora.dondeestanmispilas.bd
+package com.josealfonsomora.dondeestanmispilas.data.sources.sqlite
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class PilasDBHelper(contex: Context): SQLiteOpenHelper(contex,DATABASE_NAME, null, DATABASE_VERSION){
+class PilasDBHelper(contex: Context): SQLiteOpenHelper(contex,
+    DATABASE_NAME, null, DATABASE_VERSION
+){
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(SQL_CREATE_ENTRIES)
     }

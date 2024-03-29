@@ -1,4 +1,4 @@
-package com.josealfonsomora.dondeestanmispilas.bd
+package com.josealfonsomora.dondeestanmispilas.data.sources.sqlite
 
 import android.provider.BaseColumns
 

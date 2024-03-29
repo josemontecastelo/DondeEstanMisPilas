@@ -1,11 +1,9 @@
-package com.josealfonsomora.dondeestanmispilas.bd.pilas_db
+package com.josealfonsomora.dondeestanmispilas.data.sources.room
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.josealfonsomora.dondeestanmispilas.bd.PilasDBScheme
-import com.josealfonsomora.dondeestanmispilas.domain.Pila
 
 
 @Dao

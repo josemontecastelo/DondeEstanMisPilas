@@ -1,4 +1,4 @@
-package com.josealfonsomora.dondeestanmispilas.theme
+package com.josealfonsomora.dondeestanmispilas.ui.theme
 
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme

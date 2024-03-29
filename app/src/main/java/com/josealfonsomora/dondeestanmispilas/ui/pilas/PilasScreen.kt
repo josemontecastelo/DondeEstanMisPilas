@@ -1,6 +1,5 @@
-package com.josealfonsomora.dondeestanmispilas.features.pilas
+package com.josealfonsomora.dondeestanmispilas.ui.pilas
 
-import android.app.Activity
 import android.net.Uri
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -21,7 +20,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.josealfonsomora.dondeestanmispilas.domain.Pila
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -114,5 +112,5 @@ fun Pila(pila: Pila) {
 @Preview
 @Composable
 fun PilasScreenPreview() {
-    PilasContent(state = listOf(), navigateToAddPilas = {}, onCameraPermissionGranted = {}) 
+    PilasContent(state = listOf(), navigateToAddPilas = {}, onCameraPermissionGranted = {})
 }

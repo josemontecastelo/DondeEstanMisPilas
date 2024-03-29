@@ -1,4 +1,4 @@
-package com.josealfonsomora.dondeestanmispilas.theme
+package com.josealfonsomora.dondeestanmispilas.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

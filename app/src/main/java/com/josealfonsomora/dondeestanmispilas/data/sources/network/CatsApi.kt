@@ -1,11 +1,9 @@
-package com.josealfonsomora.dondeestanmispilas.api
+package com.josealfonsomora.dondeestanmispilas.data.sources.network
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.PATCH
-import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface CatsApi {

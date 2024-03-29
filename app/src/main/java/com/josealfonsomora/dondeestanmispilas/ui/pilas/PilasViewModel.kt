@@ -1,36 +1,23 @@
-package com.josealfonsomora.dondeestanmispilas.features.pilas
+package com.josealfonsomora.dondeestanmispilas.ui.pilas
 
-import android.net.Uri
 import android.util.Log
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.runtime.MutableState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.josealfonsomora.dondeestanmispilas.bd.pilas_db.PilaEntity
-import com.josealfonsomora.dondeestanmispilas.bd.pilas_db.toDomain
+import com.josealfonsomora.dondeestanmispilas.data.repositories.PilasRepository
+import com.josealfonsomora.dondeestanmispilas.data.sources.room.PilaEntity
+import com.josealfonsomora.dondeestanmispilas.data.sources.room.toDomain
 import com.josealfonsomora.dondeestanmispilas.domain.Pila
-import com.josealfonsomora.dondeestanmispilas.features.login.LoginContent
-import com.josealfonsomora.dondeestanmispilas.features.pilas.PilasState.Success
+import com.josealfonsomora.dondeestanmispilas.ui.pilas.PilasState.Success
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineStart
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 

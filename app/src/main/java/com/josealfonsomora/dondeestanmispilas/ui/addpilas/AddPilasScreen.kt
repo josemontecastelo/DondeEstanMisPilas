@@ -1,4 +1,4 @@
-package com.josealfonsomora.dondeestanmispilas.features.addpilas
+package com.josealfonsomora.dondeestanmispilas.ui.addpilas
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,11 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.josealfonsomora.dondeestanmispilas.di.PilasDataStore
 import com.josealfonsomora.dondeestanmispilas.domain.Pila
-import com.josealfonsomora.dondeestanmispilas.features.pilas.Pila
-import com.josealfonsomora.dondeestanmispilas.theme.DondeEstanMisPilasTheme
-import javax.inject.Inject
+import com.josealfonsomora.dondeestanmispilas.ui.theme.DondeEstanMisPilasTheme
 
 @Composable
 fun AddPilasScreen(viewModel: AddPilasViewModel = hiltViewModel()) {

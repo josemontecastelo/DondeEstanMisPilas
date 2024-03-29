@@ -1,20 +1,18 @@
-package com.josealfonsomora.dondeestanmispilas.features.pilas
+package com.josealfonsomora.dondeestanmispilas.data.repositories
 
 import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
-import com.josealfonsomora.dondeestanmispilas.api.CatFactResponse
-import com.josealfonsomora.dondeestanmispilas.api.CatsApi
-import com.josealfonsomora.dondeestanmispilas.bd.pilas_db.PilaDao
-import com.josealfonsomora.dondeestanmispilas.bd.pilas_db.toDomain
+import com.josealfonsomora.dondeestanmispilas.data.sources.network.CatFactResponse
+import com.josealfonsomora.dondeestanmispilas.data.sources.network.CatsApi
+import com.josealfonsomora.dondeestanmispilas.data.sources.room.PilaDao
+import com.josealfonsomora.dondeestanmispilas.data.sources.room.toDomain
 import com.josealfonsomora.dondeestanmispilas.di.PilasDataStore
 import com.josealfonsomora.dondeestanmispilas.domain.Pila
-import com.josealfonsomora.dondeestanmispilas.domain.toEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import retrofit2.await

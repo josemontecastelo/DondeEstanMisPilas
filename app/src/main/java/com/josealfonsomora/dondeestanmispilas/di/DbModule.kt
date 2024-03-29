@@ -2,7 +2,7 @@ package com.josealfonsomora.dondeestanmispilas.di
 
 import android.content.Context
 import androidx.room.Room
-import com.josealfonsomora.dondeestanmispilas.bd.pilas_db.PilasDBRoom
+import com.josealfonsomora.dondeestanmispilas.data.sources.room.PilasDBRoom
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,7 +11,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Module
 @InstallIn(ViewModelComponent::class)
-object PilasDbModule {
+object DbModule {
     const val DATABASE_NAME = "PilasRoom.db"
 
     @Provides

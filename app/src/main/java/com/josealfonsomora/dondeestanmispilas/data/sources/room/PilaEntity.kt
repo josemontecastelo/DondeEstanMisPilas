@@ -1,4 +1,4 @@
-package com.josealfonsomora.dondeestanmispilas.bd.pilas_db
+package com.josealfonsomora.dondeestanmispilas.data.sources.room
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
